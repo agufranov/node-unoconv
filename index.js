@@ -29,9 +29,12 @@ unoconv.convert = function(file, outputFormat, options, callback) {
     }
 
     args = [
-        '-f' + outputFormat,
-        '--stdout'
+        '-f' + outputFormat
     ];
+
+    if (options.outputFile) {
+        args.push('-o' + options.outputFile)
+    }
 
     if (options && options.port) {
         args.push('-p' + options.port)
